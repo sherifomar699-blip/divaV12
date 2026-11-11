@@ -1,17 +1,17 @@
 const C = require('../lib/core');
-const authHandler = require('./auth');
-const catalogHandler = require('./catalog');
-const orderHandler = require('./order');
-const ordersHandler = require('./orders');
-const trackHandler = require('./track');
-const meHandler = require('./me');
-const redeemHandler = require('./redeem');
-const uploadHandler = require('./upload');
-const designHandler = require('./design');
-const printReqHandler = require('./print-request');
-const adminHandler = require('./admin');
-const adsHandler = require('./ads');
-const imgHandler = require('./img');
+const authHandler = require('../api_modules/auth');
+const catalogHandler = require('../api_modules/catalog');
+const orderHandler = require('../api_modules/order');
+const ordersHandler = require('../api_modules/orders');
+const trackHandler = require('../api_modules/track');
+const meHandler = require('../api_modules/me');
+const redeemHandler = require('../api_modules/redeem');
+const uploadHandler = require('../api_modules/upload');
+const designHandler = require('../api_modules/design');
+const printReqHandler = require('../api_modules/print-request');
+const adminHandler = require('../api_modules/admin');
+const adsHandler = require('../api_modules/ads');
+const imgHandler = require('../api_modules/img');
 
 module.exports = async (req, res) => {
   const url = req.url || '';
