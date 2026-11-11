@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>تسجيل الدخول | Diva Suez Store</title>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Cormorant+Garamond:ital,wght@1,700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at 50% 0,#4a2160,#1E0E26 65%);color:#F6E9E6;font-family:'Tajawal',Tahoma,sans-serif;font-size:17px;line-height:1.7;display:flex;justify-content:center;padding:24px 16px calc(24px + env(safe-area-inset-bottom,0px));padding-top:calc(24px + env(safe-area-inset-top,0px))}
+.box{width:min(440px,100%)}
+.logo{display:block;text-align:center;text-decoration:none;color:#C98F5E;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2.6rem;line-height:1.1;margin:8px 0 4px}
+.logo small{display:block;font-size:1.1rem;color:#E7B4B0}
+.card{background:#2a1535cc;border:1px solid #4a2a5a;border-radius:18px;padding:22px;margin-top:18px;backdrop-filter:blur(6px);animation:up .5s}
+@keyframes up{from{opacity:0;transform:translateY(20px)}}
+.tabs{display:grid;grid-template-columns:1fr 1fr;background:#1E0E26;border-radius:12px;padding:4px;margin-bottom:18px}
+.tabs button,.sub button{border:0;background:none;color:#B49BBA;font:inherit;padding:8px;border-radius:9px;cursor:pointer}
+.tabs button[aria-selected=true]{background:#C98F5E;color:#2A1630;font-weight:700}
+.sub{display:flex;gap:18px;margin-bottom:6px}
+.sub button{padding:4px 0;border-radius:0}
+.sub button[aria-selected=true]{color:#F6E9E6;border-bottom:2px solid #C98F5E}
+label{display:block;margin-top:12px;font-weight:500}
+input{width:100%;padding:12px 14px;border-radius:10px;border:1px solid #4a2a5a;background:#1E0E26;color:#F6E9E6;font:inherit}
+input:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid #C98F5E;outline-offset:2px}
+.go{width:100%;margin-top:18px;border:0;border-radius:10px;padding:13px;font:inherit;font-weight:700;font-size:1.05rem;background:#C98F5E;color:#2A1630;cursor:pointer}
+.go:disabled{opacity:.6}
+.err{color:#ff9a8d;min-height:1.5em;margin-top:8px;font-size:.95rem}
+.skip{display:block;text-align:center;margin-top:18px;color:#D9C6DE}
+.hint{color:#B49BBA;font-size:.9rem;margin:6px 0 0}
+.hide{display:none}
+.ord{border:1px solid #4a2a5a;border-radius:12px;padding:12px 14px;margin-top:10px;background:#1E0E26}
+.ord .t{display:flex;justify-content:space-between;gap:8px}
+.ord small{color:#B49BBA}
+.st{background:#C98F5E22;color:#E7B4B0;border-radius:99px;padding:0 12px;font-size:.85rem;white-space:nowrap}
+.out{background:none;border:0;color:#ff9a8d;cursor:pointer;font:inherit;margin-top:14px}
+
+.pts{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:16px;padding:16px;border-radius:16px;background:linear-gradient(135deg,#C98F5E,#E7B4B0);color:#2A1630}
+.pts .big{font-family:'Aref Ruqaa',serif;font-size:2.4rem;line-height:1}
+.pts small{display:block;opacity:.8;font-size:.82rem}
+.sec{font-family:'Aref Ruqaa',serif;font-size:1.4rem;margin:20px 0 4px;display:flex;justify-content:space-between;align-items:center}
+.live{font-family:'Tajawal';font-size:.78rem;color:#B49BBA;display:flex;align-items:center;gap:6px}
+.live i{width:8px;height:8px;border-radius:50%;background:#2fd17f;animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.25}}
+.code{display:flex;justify-content:space-between;align-items:center;gap:10px;border:1px dashed #C98F5E;border-radius:12px;padding:10px 12px;margin-top:8px;background:#1E0E26}
+.code b{direction:ltr;letter-spacing:1px;color:#E7B4B0}
+.code button{background:#C98F5E;border:0;border-radius:8px;padding:4px 12px;font:inherit;font-weight:700;cursor:pointer}
+.trk{display:flex;margin:14px 0 6px}
+.stp{flex:1;text-align:center;position:relative;font-size:.76rem;color:#B49BBA}
+.stp i{display:grid;place-items:center;width:28px;height:28px;margin:0 auto 4px;border-radius:50%;background:#2a1535;border:1px solid #4a2a5a;font-style:normal;position:relative;z-index:1}
+.stp::before{content:"";position:absolute;top:13px;right:50%;width:100%;height:2px;background:#4a2a5a}
+.stp:last-child::before{display:none}
+.stp.done::before{background:#C98F5E}
+.stp.done i{background:#C98F5E55;border-color:#C98F5E;color:#fff}
+.stp.now i{background:#C98F5E;color:#2A1630;font-weight:700;animation:pl 1.8s infinite}
+.stp.now{color:#F6E9E6;font-weight:700}
+@keyframes pl{0%{box-shadow:0 0 0 0 #C98F5Eaa}100%{box-shadow:0 0 0 12px #C98F5E00}}
+.cancel{margin:10px 0;color:#ff9a8d;font-weight:700}
+.ord.flash{animation:fl 1.6s}
+@keyframes fl{0%,60%{box-shadow:0 0 0 3px #2fd17f}100%{box-shadow:0 0 0 0 transparent}}
+.trkbox input{margin-top:8px}
+.log{font-size:.85rem;color:#B49BBA;margin-top:8px}
+.log div{display:flex;justify-content:space-between;border-bottom:1px solid #4a2a5a55;padding:3px 0}
+</style>
+</head>
+<body>
+<div class="box">
+  <a class="logo" href="/">Diva<small>Suez Store</small></a>
+
+  <div class="card" id="vAuth">
+    <div class="tabs" role="tablist">
+      <button role="tab" id="tCus" aria-selected="true">عميل</button>
+      <button role="tab" id="tAdm" aria-selected="false">أدمن</button>
+    </div>
+
+    <div id="pCus">
+      <div class="sub"><button id="mLog" aria-selected="true">تسجيل دخول</button><button id="mReg" aria-selected="false">حساب جديد</button></div>
+      <div id="fName" class="hide"><label for="n">الاسم بالكامل</label><input id="n" autocomplete="name"></div>
+      <label for="p">رقم الهاتف</label><input id="p" type="tel" inputmode="tel" autocomplete="username" placeholder="01xxxxxxxxx">
+      <label for="w">كلمة السر</label><input id="w" type="password" autocomplete="current-password" placeholder="6 حروف على الأقل">
+      <div class="err" id="eC" role="alert"></div>
+      <button class="go" id="goC">دخول</button>
+      <p class="hint">الحساب اختياري، تقدر تطلب من غير تسجيل. الحساب بيحفظ بياناتك ويعرضلك طلباتك.</p>
+    </div>
+
+    <div id="pAdm" class="hide">
+      <label for="ap">كلمة سر الأدمن</label><input id="ap" type="password" autocomplete="current-password">
+      <div class="err" id="eA" role="alert"></div>
+      <button class="go" id="goA">دخول الأدمن</button>
+    </div>
+    <a class="skip" href="/">المتابعة بدون حساب ←</a>
+  </div>
+
+  <div class="card trkbox" id="vTrack">
+    <h3 style="margin:0;font-family:'Aref Ruqaa',serif;font-size:1.4rem">تتبّع طلبك بدون حساب</h3>
+    <input id="tn" placeholder="رقم الطلب (DS-123456)" style="direction:ltr" autocomplete="off">
+    <input id="tp" type="tel" inputmode="tel" placeholder="رقم الهاتف اللي طلبت بيه">
+    <div class="err" id="eT" role="alert"></div>
+    <button class="go" id="goT" style="margin-top:6px">تتبّع</button>
+    <div id="tres"></div>
+  </div>
+
+  <div class="card hide" id="vAcct">
+    <h2 style="margin:0;font-family:'Aref Ruqaa',serif;font-size:1.8rem" id="hi"></h2>
+    <small style="color:#B49BBA" id="ph"></small>
+    <div class="pts"><div><small>رصيد نقاطك (1 نقطة = 1 ج.م)</small><span class="big" id="pt">0</span></div><small style="max-width:15ch;text-align:left">بتخصمها وقت الطلب لو فعّلتها</small></div>
+    <div class="log" id="plog"></div>
+    <div id="codesBox" class="hide"><div class="sec">أكواد الاسترداد بتاعتك</div><div id="codes"></div></div>
+    <div class="sec">طلباتي <span class="live"><i></i> مباشر <span id="upd"></span></span></div>
+    <div id="ords"><p class="hint">جاري التحميل...</p></div>
+    <a class="go" style="display:block;text-align:center;text-decoration:none" href="/">متابعة التسوق</a>
+    <button class="out" id="out">تسجيل الخروج</button>
+  </div>
+</div>
+<script>
+const $=s=>document.querySelector(s);
+const ls={g:k=>{try{return localStorage.getItem(k)}catch(e){return null}},s:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}},d:k=>{try{localStorage.removeItem(k)}catch(e){}}};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const ERR={bad_credentials:'بيانات الدخول غير صحيحة.',exists:'الرقم ده مسجّل قبل كده، جرّب تسجيل الدخول.',bad_phone:'رقم الهاتف لازم يكون 11 رقم ويبدأ بـ 01.',bad_password:'كلمة السر 6 حروف على الأقل.',bad_name:'اكتب اسمك بالكامل.',too_many:'محاولات كتير، استنى شوية وجرّب تاني.',db_not_configured:'قاعدة البيانات لسه ما اتربطتش.',no_secret:'إعدادات السيرفر ناقصة (AUTH_SECRET).',no_admin_password:'كلمة سر الأدمن لسه ما اتضافتش.',blocked:'حسابك موقوف، تواصل معنا على واتساب.',server:'حصل خطأ، جرّب تاني.'};
+async function api(path,body,tok){
+  const r=await fetch(path,{method:body?'POST':'GET',headers:{'Content-Type':'application/json',...(tok?{Authorization:'Bearer '+tok}:{})},body:body?JSON.stringify(body):undefined});
+  let j={};try{j=await r.json()}catch(e){}
+  if(!r.ok){const e=new Error(j.error||'server');e.status=r.status;throw e}return j;
+}
+let mode='login';
+function setTab(adm){$('#tCus').setAttribute('aria-selected',!adm);$('#tAdm').setAttribute('aria-selected',adm);$('#pCus').classList.toggle('hide',adm);$('#pAdm').classList.toggle('hide',!adm);history.replaceState(null,'',adm?'#admin':'#')}
+function setMode(m){mode=m;$('#mLog').setAttribute('aria-selected',m=='login');$('#mReg').setAttribute('aria-selected',m=='reg');$('#fName').classList.toggle('hide',m=='login');$('#goC').textContent=m=='login'?'دخول':'إنشاء الحساب';$('#w').autocomplete=m=='login'?'current-password':'new-password';$('#eC').textContent=''}
+$('#tCus').onclick=()=>setTab(false);$('#tAdm').onclick=()=>setTab(true);
+$('#mLog').onclick=()=>setMode('login');$('#mReg').onclick=()=>setMode('reg');
+$('#goC').onclick=async()=>{
+  const b=$('#goC');b.disabled=true;$('#eC').textContent='';
+  try{
+    const body={action:mode=='login'?'login':'register',phone:$('#p').value.trim(),password:$('#w').value,name:$('#n').value.trim()};
+    const j=await api('/api/auth',body);
+    ls.s('diva_tok',j.token);ls.s('diva_user',JSON.stringify(j.user));location.href='/';
+  }catch(e){$('#eC').textContent=ERR[e.message]||ERR.server}
+  b.disabled=false;
+};
+$('#goA').onclick=async()=>{
+  const b=$('#goA');b.disabled=true;$('#eA').textContent='';
+  try{const j=await api('/api/auth',{action:'admin',password:$('#ap').value});ls.s('diva_admin',j.token);location.href='/admin.html'}
+  catch(e){$('#eA').textContent=ERR[e.message]||ERR.server}
+  b.disabled=false;
+};
+['#w','#p','#n'].forEach(s=>$(s).addEventListener('keydown',e=>{if(e.key==='Enter')$('#goC').click()}));
+$('#ap').addEventListener('keydown',e=>{if(e.key==='Enter')$('#goA').click()});
+if(location.hash==='#admin')setTab(true);
+
+// ---- تتبّع الطلب (لايف) ----
+const STEPS=['جديد','قيد التجهيز','تم الشحن','تم التسليم'];
+const fmtT=()=>new Date().toLocaleTimeString('ar-EG');
+function tracker(o){
+  if(o.status==='ملغي')return '<div class="cancel">تم إلغاء الطلب</div>';
+  const i=STEPS.indexOf(o.status);
+  return '<div class="trk">'+STEPS.map((s,k)=>`<div class="stp${k<i?' done':''}${k===i?' now':''}"><i>${k<i?'✓':k+1}</i>${s}</div>`).join('')+'</div>';
+}
+function ordCard(o,flash){
+  return `<div class="ord${flash?' flash':''}"><div class="t"><b>${esc(o.num)}</b><span class="st">${esc(o.status)}</span></div><small>${new Date(o.ts).toLocaleString('ar-EG')}</small>${tracker(o)}<div>${o.items.map(i=>`${esc(i.name)}${i.size?' '+esc(i.size)+' مل':''} × ${esc(i.qty)}`).join('<br>')}</div>${o.discount?`<small>خصم/نقاط: -${esc(o.discount)} ج.م</small><br>`:''}<b>${esc(o.total)} ج.م</b></div>`;
+}
+const prev={};
+async function loadAcct(first){
+  try{
+    const [j,m]=await Promise.all([api('/api/orders',null,ls.g('diva_tok')),api('/api/me',null,ls.g('diva_tok'))]);
+    $('#pt').textContent=m.points;
+    $('#plog').innerHTML=m.log.slice(0,3).map(l=>`<div><span>${esc(l.note||'')}</span><b dir="ltr">${l.delta>0?'+':''}${esc(l.delta)}</b></div>`).join('');
+    $('#codesBox').classList.toggle('hide',!m.codes.length);
+    $('#codes').innerHTML=m.codes.map(c=>`<div class="code"><div><b>${esc(c.code)}</b><br><small>خصم ${esc(c.value)} ج.م${c.expires?' · لحد '+new Date(c.expires).toLocaleDateString('ar-EG'):''}${c.note?' · '+esc(c.note):''}</small></div><button data-c="${esc(c.code)}">نسخ</button></div>`).join('');
+    $('#ords').innerHTML=j.orders.length?j.orders.map(o=>ordCard(o,!first&&prev[o.num]&&prev[o.num]!==o.status)).join(''):'<p class="hint">مفيش طلبات لسه.</p>';
+    j.orders.forEach(o=>prev[o.num]=o.status);
+    $('#upd').textContent='· آخر تحديث '+fmtT();
+  }catch(e){
+    if(e.status===401){ls.d('diva_tok');ls.d('diva_user');location.reload()}
+    else if(first)$('#ords').innerHTML='<p class="hint">مقدرناش نحمّل طلباتك دلوقتي.</p>';
+  }
+}
+$('#codes').addEventListener('click',e=>{const c=e.target.dataset.c;if(c){try{navigator.clipboard.writeText(c);e.target.textContent='تم النسخ'}catch(x){}}});
+let me=null;try{me=JSON.parse(ls.g('diva_user')||'null')}catch(e){}
+if(me&&ls.g('diva_tok')){
+  $('#vAuth').classList.add('hide');$('#vTrack').classList.add('hide');$('#vAcct').classList.remove('hide');
+  $('#hi').textContent='أهلاً '+me.name;$('#ph').textContent=me.phone;
+  loadAcct(true);
+  setInterval(()=>{if(!document.hidden)loadAcct(false)},8000);
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)loadAcct(false)});
+}
+// تتبّع من غير حساب
+let tTimer=null;
+async function doTrack(){
+  const num=$('#tn').value.trim().toUpperCase(),phone=$('#tp').value.trim();$('#eT').textContent='';
+  try{const j=await api('/api/track',{num,phone});$('#tres').innerHTML=ordCard(j.order,false);clearInterval(tTimer);tTimer=setInterval(async()=>{if(document.hidden)return;try{const k=await api('/api/track',{num,phone});$('#tres').innerHTML=ordCard(k.order,k.order.status!==j.order.status);j.order.status=k.order.status}catch(e){}},8000)}
+  catch(e){$('#tres').innerHTML='';$('#eT').textContent=e.message==='not_found'?'مفيش طلب بالبيانات دي، راجع الرقم والهاتف.':e.message==='bad_input'?'اكتب رقم الطلب (DS-123456) ورقم الهاتف صح.':(ERR[e.message]||ERR.server)}
+}
+$('#goT').onclick=doTrack;
+if(location.hash==='#track')setTimeout(()=>$('#tn').focus(),300);
+$('#out').onclick=()=>{ls.d('diva_tok');ls.d('diva_user');location.href='/'};
+</script>
+</body>
+</html>
